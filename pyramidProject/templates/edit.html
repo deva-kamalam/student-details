@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body class="main">
+{{ data }}
+    <form id="form1" method="post" action="{{ url_for('edit', name=data[0]) }}">
+        <label>Name : </label>
+        <input placeholder="Name" name="name" type="text" value="{{ data[0] }}"><br>
+
+        <label>Email : </label>
+        <input placeholder="Email" name="email" type="email" value="{{ data[1] }}"><br>
+
+        <label>Age : </label>
+        <input placeholder="Age" name="age" type="number" value="{{ data[2] }}"><br>
+
+
+        <input type="submit" value="Submit"><br>
+    </form>
+</body>
+</html>

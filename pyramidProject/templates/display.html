@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Add Student</h1>
+    <form method="POST" action="{{ url_for('display') }}">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.name.label }}<br>
+            {{ form.name(size=32) }}<br>
+        </div>
+        <div>
+            {{ form.age.label }}<br>
+            {{ form.age(size=32) }}<br>
+        </div>
+        <div>
+            {{ form.email.label }}<br>
+            {{ form.email(size=32) }}<br>
+        </div>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+
+    <h1>Students</h1>
+    {{ display }}
+    <table border="1">
+        <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th colspan="2">Modify</th>
+        </tr>
+        {% for row in display %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[1] }}</td>
+            <td><a href="{{ url_for('edit', name=row[0]) }}">Edit</a></td>
+            <td>
+                <form method="post" action="{{ url_for('delete', name=row[0]) }}">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p><a href="{{ url_for('logout') }}">Logout</a></p>
+</body>
+</html>

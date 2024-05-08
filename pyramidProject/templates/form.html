@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>Students Login</h1>
+
+<div style="justify-content: right; text-align:right">
+
+        <a href="{{url_for('signin')}}" class="btn btn-success">Log in</a>
+        <a href="{{url_for('logout')}}" class="btn btn-success">Log out</a>
+        <a href="{{url_for('signup')}}" class="btn btn-success">Sign up</a>
+</div>
+
+{% endblock body %}

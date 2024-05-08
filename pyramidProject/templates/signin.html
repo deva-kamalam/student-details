@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block body %}
+<h2>Sign In</h2>
+<div class="col-4 mx-auto">
+    <form action="" method="post">
+        {{form.hidden_tag()}}
+        {{form.username.label}}
+        {{form.username(size=20)}}
+        {{form.password.label}}
+        {{form.password(size=20)}}        {{form.submit()}}
+    </form><br>
+    <div class="account">
+    <p>Don't have an account? ---></p>
+    <a href="{{url_for('signup')}}" class="btn btn-success"> Sign Up</a>
+    </div>
+</div>
+{% endblock body %}
